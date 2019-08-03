@@ -16,7 +16,7 @@ Creating Docker Machine (Optional)
 
 Create the container and build the images
 ...
-\$ docker-compose up -d
+\$ docker-compose up -d --build
 ...
 
 Find IP of Docker machine
