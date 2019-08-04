@@ -1,0 +1,9 @@
+{
+   "name": "howtocodewell/oop-php",
+   "type": "project",
+   "require": {},
+   "require-dev": {
+      "codeception/codeception": "^3.0",
+      "phpstan/phpstan": "^0.11.12"
+   }
+}
