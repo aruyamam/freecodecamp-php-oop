@@ -38,4 +38,12 @@ class Router
 
       return $this->routes[$currentURI];
    }
+
+   /**
+    * @return array
+    */
+   public function getRoutes(): array
+   {
+      return $this->routes;
+   }
 }
