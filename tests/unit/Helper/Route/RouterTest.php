@@ -1,6 +1,8 @@
-<?php namespace Route;
+<?php
 
-use Helper\Route\Router;
+namespace Helper\Route;
+
+use App\Helper\Route\Router;
 
 class RouterTest extends \Codeception\Test\Unit
 {
@@ -8,14 +10,12 @@ class RouterTest extends \Codeception\Test\Unit
      * @var \UnitTester
      */
     protected $tester;
-    
+
     protected function _before()
-    {
-    }
+    { }
 
     protected function _after()
-    {
-    }
+    { }
 
     /**
      * @group router

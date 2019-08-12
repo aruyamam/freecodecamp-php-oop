@@ -1,8 +1,6 @@
 <?php
 
-namespace Helper\Route;
-
-use Exception;
+namespace App\Helper\Route;
 
 class Route
 {
@@ -17,47 +15,11 @@ class Route
    /**
     * @var string
     */
-   private $method = '';
-
+   private $action = '';
    /**
-    * Route constructor
-    *
-    * @param array $options
-    *
-    * @throws Exception
+    * @var array
     */
-   public function __construct(array $options)
-   {
-      $this->handle($options);
-   }
-
-   /**
-    * @param array $options
-    *
-    * @throws Exception
-    */
-   public function handle(array $options)
-   {
-      /**
-       * @todo Needs SOC
-       * 1) Validation
-       * 2) Exception
-       * 3) Setting of values
-       */
-      if (false === isset($options['pattern'])) {
-         throw new Exception('Pattern is required');
-      }
-      if (false === isset($options['controller'])) {
-         throw new Exception('Controller is required');
-      }
-      if (false === isset($options['method'])) {
-         throw new Exception('Method is required');
-      }
-
-      $this->controller = $options['controller'];
-      $this->method = $options['method'];
-      $this->pattern = $options['pattern'];
-   }
+   private $method = [];
 
    /**
     * @return  string
@@ -99,20 +61,39 @@ class Route
    }
 
    /**
-    * @return  string
+    * @return  array
     */
-   public function getMethod(): string
+   public function getMethod(): array
    {
       return $this->method;
    }
 
    /**
-    * @param  string  $method
+    * @param  array  $method
     * @return  Route
     */
-   public function setMethod(string $method): Route
+   public function setMethod(array $method): Route
    {
       $this->method = $method;
+
+      return $this;
+   }
+
+   /**
+    * @return  string
+    */
+   public function getAction(): string
+   {
+      return $this->action;
+   }
+
+   /**
+    * @param  string  $action
+    * @return  Route
+    */
+   public function setAction(string $action): Route
+   {
+      $this->action = $action;
 
       return $this;
    }
