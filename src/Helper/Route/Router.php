@@ -2,41 +2,16 @@
 
 namespace App\Helper\Route;
 
-use Exception;
-
 class Router
 {
    /**
     * @var array
     */
-   private $routes = [];
+   private static $routes = [];
 
-   /**
-    * @param Route $route
-    *
-    * @return $this
-    */
-   public function register(Route $route)
+   public static function add(Route $route)
    {
-      $this->routes[$route->getPattern()] = $route;
-
-      return $this;
-   }
-
-   /**
-    * @param string $currentURI
-    *
-    * @return Route
-    *
-    * @throws Exception
-    */
-   public function process(string $currentURI): Route
-   {
-      if (false === isset($this->routes[$currentURI])) {
-         throw new Exception('Cannot find route for ' . $currentURI, 404);
-      }
-
-      return $this->routes[$currentURI];
+      self::$routes[$route->getPattern()] = $route;
    }
 
    /**
@@ -44,6 +19,6 @@ class Router
     */
    public function getRoutes(): array
    {
-      return $this->routes;
+      return self::$routes;
    }
 }
