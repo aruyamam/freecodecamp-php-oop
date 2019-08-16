@@ -2,6 +2,7 @@
 
 namespace Helper\Route;
 
+use App\Controller\Type\Home;
 use App\Helper\Route\Router;
 use App\Helper\Route\Route;
 
