@@ -1,6 +1,6 @@
 <?php
 
-use Helper\Route\Processor;
+use App\Helper\Route\Processor;
 
 $basePath = $_SERVER['DOCUMENT_ROOT'] . '/../';
 require_once $basePath . 'src/Helper/AutoLoader/AutoLoader.php';

@@ -21,7 +21,7 @@ class Processor
       $controllerName = $knownRoute->getController();
       $controller = new $controllerName();
 
-      return $controller->{$knownRoute->getMethod()}();
+      return $controller->{$knownRoute->getMethods()}();
    }
 
    /**
@@ -52,7 +52,7 @@ class Processor
          }
       }
 
-      return $controller->{$route->getMethod()}();
+      return $controller->{$route->getMethods()}();
    }
 
    /**

@@ -1,6 +1,6 @@
 <?php
 
-namespace Helper\Route;
+namespace App\Helper\Route;
 
 use Exception;
 
@@ -21,7 +21,7 @@ class Mapper
       $controllerName = $knownRoute->getController();
       $controller = new $controllerName();
 
-      return $controller->{$knownRoute->getMethod()}();
+      return $controller->{$knownRoute->getMethods()}();
    }
 
    /**
@@ -57,7 +57,7 @@ class Mapper
       }
       // 7) Get method
       // 8) Returning method
-      return $controller->{$route->getMethod()}();
+      return $controller->{$route->getMethods()}();
    }
 
    /**
