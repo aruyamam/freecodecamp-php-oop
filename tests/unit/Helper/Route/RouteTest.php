@@ -29,7 +29,7 @@ class RouteTest extends \Codeception\Test\Unit
         $this->assertSame('', $route->getController());
         $this->assertSame('', $route->getAction());
         $this->assertSame('', $route->getPattern());
-        $this->assertSame([], $route->getMethod());
+        $this->assertSame([], $route->getMethods());
     }
 
     /**
@@ -40,13 +40,26 @@ class RouteTest extends \Codeception\Test\Unit
     {
         $route = new Route();
         $route->setController(Home::class)
-            ->setMethod(['GET'])
+            ->setMethods(['GET'])
             ->setPattern('/')
             ->setAction('index');
 
         $this->assertSame(Home::class, $route->getController());
-        $this->assertSame(['GET'], $route->getMethod());
+        $this->assertSame(['GET'], $route->getMethods());
         $this->assertSame('/', $route->getPattern());
         $this->assertSame('index', $route->getAction());
+    }
+
+    /**
+     * @group route
+     * @group route-upper-case-method
+     */
+    public function testUpperCaseMethod()
+    {
+        $route = new Route();
+        $route->setController(Home::class)
+            ->setMethods(['get']);
+
+        $this->assertSame(['GET'], $route->getMethods());
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Helper\Route;
+namespace Helper\Route\Validation;
 
 use App\Helper\Route\Validation\Type\ControllerValidator;
 use App\Helper\Route\Validation\Type\MethodValidator;

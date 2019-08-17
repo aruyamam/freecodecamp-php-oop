@@ -6,6 +6,9 @@ use App\Helper\Route\Route;
 
 abstract class AbstractType
 {
+   /**
+    * @var Route
+    */
    protected $route;
 
    /**

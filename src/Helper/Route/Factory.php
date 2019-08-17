@@ -14,7 +14,7 @@ class Factory
       $route = new Route();
       $route->setAction($options['action'])
          ->setController($options['controller'])
-         ->setMethod($options['method'])
+         ->setMethods($options['method'])
          ->setPattern($options['pattern']);
 
       return $route;

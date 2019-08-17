@@ -19,7 +19,7 @@ class Route
    /**
     * @var array
     */
-   private $method = [];
+   private $methods = [];
 
    /**
     * @return  string
@@ -63,18 +63,19 @@ class Route
    /**
     * @return  array
     */
-   public function getMethod(): array
+   public function getMethods(): array
    {
-      return $this->method;
+      return $this->methods;
    }
 
    /**
-    * @param  array  $method
+    * @param  array  $methods
     * @return  Route
     */
-   public function setMethod(array $method): Route
+   public function setMethods(array $methods): Route
    {
-      $this->method = $method;
+
+      $this->methods = array_map('strtoupper', $methods);
 
       return $this;
    }
