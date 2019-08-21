@@ -12,5 +12,7 @@ class PatternValidator extends AbstractType implements InterfaceValidation
     * @return bool
     */
    public function isValid(): bool
-   { }
+   {
+      return !empty($this->route->getPattern());
+   }
 }
