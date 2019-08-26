@@ -8,7 +8,6 @@ use App\Helper\Route\Validation\InterfaceValidation;
 class MethodValidator extends AbstractType implements InterfaceValidation
 {
    /**
-    * @param mixed $value
     * @return bool
     */
    public function isValid(): bool
@@ -25,11 +24,11 @@ class MethodValidator extends AbstractType implements InterfaceValidation
    }
 
    /**
-    * @param $values
+    * @param array $values
     *
     * @return boolean
     */
-   public function isValueCorrect($values): bool
+   public function isValueCorrect(array $values): bool
    {
       $possible = [
          'GET',
