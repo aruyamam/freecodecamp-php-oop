@@ -41,14 +41,24 @@ class Validation
 
    /**
     * @param Route $route
+    *
+    * @return boolean
     */
-   public function validate(Route $route)
+   public function validate(Route $route): bool
    {
+      $isValid = false;
+
       foreach ($this->validators as $validator) {
          if ($validator instanceof InterfaceValidation) {
             $validator->setRoute($route);
-            $validator->isValid();
+            $isValid = $validator->isValid();
+
+            if (false === $isValid) {
+               break;
+            }
          }
       }
+
+      return $isValid;
    }
 }

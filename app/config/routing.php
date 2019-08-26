@@ -1,6 +1,6 @@
 <?php
 
-use Controller\Type;
+use App\Controller\Type;
 
 return [
    [

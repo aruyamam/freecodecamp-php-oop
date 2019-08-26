@@ -4,36 +4,38 @@ namespace App\Helper\Route\Validation\Type;
 
 use App\Helper\Route\Validation\AbstractType;
 use App\Helper\Route\Validation\InterfaceValidation;
-use ReflectionClass;
 use ReflectionException;
+use ReflectionMethod;
 
-class ControllerValidator extends AbstractType implements InterfaceValidation
+class ActionValidator extends AbstractType implements InterfaceValidation
 {
    /**
     * @return boolean
     */
    public function isValid(): bool
    {
-      $isValid = false;
       $className = $this->route->getController();
+      $actionName = $this->route->getAction();
 
-      if (false === empty($className)) {
-         $isValid = $this->doesExist($className);
+      $isValid = false;
+      if (false === empty($actionName) && false === empty($className)) {
+         $isValid = $this->doesExist($className, $actionName);
       }
 
       return $isValid;
    }
 
    /**
-    * @param string $string
+    * @param string $className
+    * @param string $actionName
     *
     * @return boolean
     */
-   public function doesExist(string $string): bool
+   public function doesExist(string $className, string $actionName): bool
    {
       $isValid = true;
       try {
-         new ReflectionClass($string);
+         new ReflectionMethod($className, $actionName);
       } catch (ReflectionException $exception) {
          $isValid = false;
       }
